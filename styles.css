@@ -18,9 +18,13 @@ body {
 
 /* 배경 스타일 */
 .intro, .cookie-page, .result-page {
-  background-color: #CDEC55; /* 배경 색상 */
-  background-image: radial-gradient(#D6F363 10%, transparent 10%);
+  background-color: #CDEC55; /* 기본 배경색 */
+  background-image: radial-gradient(#E4FF7B 10%, transparent 10%);
   background-size: 20px 20px;
+}
+
+.cookie-page {
+  background-image: radial-gradient(#D6F363 10%, transparent 10%);
 }
 
 /* 이미지 스타일 */
