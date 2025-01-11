@@ -15,7 +15,7 @@ function showCookiePage() {
 
 function showResultPage() {
   const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-  alert(randomFortune); // 포춘 텍스트 출력 (선택적으로 HTML에 표시 가능)
+  document.getElementById("fortune-text").textContent = randomFortune; // 텍스트 설정
   document.getElementById("cookie-page").classList.add("hidden");
   document.getElementById("result-page").classList.remove("hidden");
 }
