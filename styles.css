@@ -85,6 +85,12 @@ img {
   height: auto;
 }
 
+/* 결과 화면 고양이 이미지 스타일 */
+.result-cat {
+  max-width: 80%; /* 화면 너비의 80% */
+  margin: 20px auto; /* 위아래 여백 20px, 좌우 중앙 정렬 */
+}
+
 /* 결과 화면 버튼 스타일 */
 .result-buttons {
   display: flex; /* 버튼을 가로로 정렬 */
