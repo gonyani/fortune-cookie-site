@@ -7,29 +7,28 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="wrapper">
-    <!-- 인트로 화면 -->
-    <div class="intro" id="intro">
-      <img src="assets/intro-title.png" alt="인트로 제목" class="intro-title">
-      <img src="assets/intro-cat.png" alt="인트로 고양이" class="intro-image">
-      <img src="assets/start-button.png" alt="시작 버튼" class="start-button" onclick="showCookiePage()">
-    </div>
-
-    <!-- 쿠키 열기 화면 -->
-    <div class="cookie-page hidden" id="cookie-page">
-      <h1>쿠키를 열어보세요!</h1>
-      <img src="assets/fortune-cookie-closed.png" alt="닫힌 쿠키" id="cookie" onclick="tapCookie()">
-      <img src="assets/cookie-reveal-button.png" alt="내용 확인 버튼" id="reveal-btn" class="hidden" onclick="showResultPage()">
-    </div>
-
-    <!-- 결과 화면 -->
-    <div class="result-page hidden" id="result-page">
-      <img src="assets/result-cat.png" alt="결과 고양이와 쪽지" class="result-cat">
-      <div class="fortune-text" id="fortune-text"></div>
-      <img src="assets/result-home.png" alt="홈으로 버튼" class="result-home" onclick="resetPage()">
-      <img src="assets/result-share-button.png" alt="공유하기 버튼" class="result-share" onclick="shareFortune()">
-    </div>
+  <!-- 인트로 화면 -->
+  <div class="intro" id="intro">
+    <img src="assets/intro-cat.png" alt="인트로 고양이" class="intro-image">
+    <img src="assets/intro-title.png" alt="인트로 제목" class="intro-title">
+    <img src="assets/start-button.png" alt="시작 버튼" class="start-button" onclick="showCookiePage()">
   </div>
+
+  <!-- 쿠키 열기 화면 -->
+  <div class="cookie-page hidden" id="cookie-page">
+    <h1>쿠키를 열어보세요!</h1>
+    <img src="assets/fortune-cookie-closed.png" alt="닫힌 쿠키" id="cookie" onclick="tapCookie()">
+    <img src="assets/cookie-reveal-button.png" alt="내용 확인 버튼" id="reveal-btn" class="hidden" onclick="showResultPage()">
+  </div>
+
+  <!-- 결과 화면 -->
+  <div class="result-page hidden" id="result-page">
+    <img src="assets/result-cat.png" alt="결과 고양이와 쪽지" class="result-cat">
+    <div class="fortune-text" id="fortune-text"></div>
+    <img src="assets/result-home.png" alt="홈으로 버튼" class="result-home" onclick="resetPage()">
+    <img src="assets/result-share-button.png" alt="공유하기 버튼" class="result-share" onclick="shareFortune()">
+  </div>
+
   <script src="scripts.js"></script>
 </body>
 </html>
