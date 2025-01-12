@@ -12,10 +12,11 @@ body {
   padding: 0;
   font-family: 'JGaegujaengyi-Medium-KO', Arial, sans-serif;
   color: #834124;
-  background-color: black; /* 여백을 검정색으로 설정 */
+  background-color: black; /* 검정 여백 표시 */
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
 }
@@ -24,15 +25,18 @@ body {
 .main-container {
   width: 100%;
   height: 100%;
-  aspect-ratio: 4 / 3; /* 화면 비율 4:3 유지 */
+  max-width: calc(100vh * 4 / 3); /* 컴퓨터 화면에서 최대 4:3 비율 유지 */
+  max-height: calc(100vw * 3 / 4); /* 모바일 화면에서 최대 4:3 비율 유지 */
   background-color: #CDEC55; /* 화면 기본 배경 */
   background-image: radial-gradient(#E4FF7B 15%, transparent 15%);
-  background-size: 30px 30px; /* 도트 크기 증가 */
+  background-size: 30px 30px; /* 도트 크기 */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative; /* 요소 정렬에 중요 */
+  position: relative; /* 요소 정렬 */
+  overflow: hidden; /* 여백을 넘는 콘텐츠 숨김 */
+  aspect-ratio: 4 / 3; /* 비율 고정 */
 }
 
 /* 공통 화면 스타일 */
@@ -44,7 +48,7 @@ body {
   width: 100%;
   height: 100%;
   text-align: center;
-  position: absolute; /* 고정 위치 */
+  position: absolute;
   top: 0;
   left: 0;
 }
@@ -53,22 +57,19 @@ body {
 img {
   max-width: 100%;
   height: auto;
-  z-index: 1; /* 이미지 층위 조정 */
 }
 
 .intro-image {
   width: 150px;
-  z-index: 2; /* 고양이 이미지 층위 */
 }
 
 .intro-title {
   margin: 10px;
-  z-index: 3; /* 제목 이미지가 고양이 위에 위치 */
+  z-index: 2; /* 제목이 고양이 위로 */
 }
 
-/* 버튼 스타일 */
 .start-button, .result-home, .result-share, #reveal-btn {
-  width: 150px; /* 버튼 크기 축소 */
+  width: 150px;
   margin: 10px;
   cursor: pointer;
 }
@@ -81,7 +82,7 @@ img {
 /* 결과 텍스트 스타일 */
 .fortune-text {
   position: absolute;
-  top: 60%; /* 쪽지 위치에 맞게 조정 */
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
@@ -90,7 +91,7 @@ img {
   text-align: center;
   width: 60%;
   line-height: 1.4;
-  z-index: 4;
+  z-index: 3;
 }
 
 /* 숨겨진 요소 */
