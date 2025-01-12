@@ -65,8 +65,8 @@ function shareFortune() {
     objectType: "text",
     text: `오늘의 운세: ${currentFortune}`,
     link: {
-      webUrl: "https://example.com", // 실제 웹사이트 URL로 변경하세요
-      mobileWebUrl: "https://example.com" // 모바일용 URL도 같은 값으로 설정
+      webUrl: "https://gonyani.github.io/fortune-cookie-site/", // 실제 웹사이트 URL로 변경하세요
+      mobileWebUrl: "https://gonyani.github.io/fortune-cookie-site/" // 모바일용 URL도 같은 값으로 설정
     }
   });
 }
