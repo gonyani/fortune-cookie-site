@@ -1,45 +1,57 @@
-// 쿠키 클릭 횟수와 포춘 내용 설정
-let cookieTaps = 0;
-const fortunes = [
-  "작은 행운이 찾아옵니다!",
-  "기대하는 일이 이루어집니다!",
-  "마음이 가는 대로 행동하세요!",
-  "주위 사람들을 살펴보세요!"
-];
+document.addEventListener('DOMContentLoaded', () => {
+    const introScreen = document.getElementById('intro-screen');
+    const cookieScreen = document.getElementById('cookie-screen');
+    const resultScreen = document.getElementById('result-screen');
+    const startButton = document.getElementById('start-button');
+    const cookieImage = document.getElementById('cookie-image');
+    const homeButton = document.getElementById('home-button');
+    const shareButton = document.getElementById('share-button');
+    const fortuneText = document.getElementById('fortune-text');
 
-// 화면 전환 함수
-function showCookiePage() {
-  document.getElementById("intro").classList.add("hidden");
-  document.getElementById("cookie-page").classList.remove("hidden");
-}
+    const fortunes = [
+        '작은 행운이 찾아옵니다',
+        '기대하는 일이 이루어집니다',
+        '마음이 가는 대로 행동하세요',
+        '주위 사람들을 살펴보세요'
+    ];
 
-function showResultPage() {
-  const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-  document.getElementById("fortune-text").textContent = randomFortune; // 텍스트 설정
-  document.getElementById("cookie-page").classList.add("hidden");
-  document.getElementById("result-page").classList.remove("hidden");
-}
+    let tapCount = 0;
 
-function resetPage() {
-  document.getElementById("result-page").classList.add("hidden");
-  document.getElementById("intro").classList.remove("hidden");
-  cookieTaps = 0; // 클릭 횟수 초기화
-  document.getElementById("reveal-btn").classList.add("hidden");
-  document.getElementById("cookie").src = "assets/fortune-cookie-closed.png"; // 닫힌 쿠키로 초기화
-}
+    startButton.addEventListener('click', () => {
+        introScreen.classList.add('hidden');
+        cookieScreen.classList.remove('hidden');
+    });
 
-// 쿠키 탭 함수
-function tapCookie() {
-  cookieTaps++;
-  const cookieImage = document.getElementById("cookie");
+    cookieImage.addEventListener('click', () => {
+        tapCount++;
+        if (tapCount >= 3) {
+            cookieImage.src = '사용 요소/fortune-cookie-open.png';
+            setTimeout(() => {
+                cookieScreen.classList.add('hidden');
+                resultScreen.classList.remove('hidden');
+                fortuneText.textContent = fortunes[Math.floor(Math.random() * fortunes.length)];
+            }, 500);
+        }
+    });
 
-  if (cookieTaps >= 3) {
-    cookieImage.src = "assets/fortune-cookie-open.png"; // 열린 쿠키 이미지로 변경
-    document.getElementById("reveal-btn").classList.remove("hidden"); // 내용 확인 버튼 표시
-  }
-}
+    homeButton.addEventListener('click', () => {
+        resultScreen.classList.add('hidden');
+        introScreen.classList.remove('hidden');
+        cookieImage.src = '사용 요소/fortune-cookie-closed.png';
+        tapCount = 0;
+    });
 
-// 공유 버튼 함수 (알림만 출력)
-function shareFortune() {
-  alert("포춘쿠키 내용을 공유할 수 있는 기능은 준비 중입니다!");
-}
+    shareButton.addEventListener('click', () => {
+        const shareData = {
+            title: '오늘의 포춘쿠키',
+            text: `나의 운세: "${fortuneText.textContent}"`,
+            url: window.location.href
+        };
+
+        if (navigator.share) {
+            navigator.share(shareData).catch(err => console.error('공유 실패:', err));
+        } else {
+            alert('공유 기능이 지원되지 않는 브라우저입니다.');
+        }
+    });
+});
