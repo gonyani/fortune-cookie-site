@@ -85,6 +85,19 @@ img {
   height: auto;
 }
 
+/* 결과 화면 버튼 스타일 */
+.result-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* 버튼 간 간격 */
+  margin-top: 30px; /* 결과 텍스트 아래 여백 */
+}
+
+.result-buttons img {
+  height: 50px; /* 시작하기 버튼과 같은 높이 */
+  cursor: pointer;
+}
+
 /* 쿠키 클릭 시 애니메이션 */
 @keyframes cookie-tap {
   0% {
