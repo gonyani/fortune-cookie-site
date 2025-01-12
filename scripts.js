@@ -13,7 +13,7 @@ const fortunes = [
 ];
 
 // 쿠키를 탭한 횟수
-let tapCount = 0; 
+let tapCount = 0;
 const maxTaps = 3; // 쿠키를 열기 위해 필요한 탭 횟수
 
 // 쿠키 열기 화면에서 쿠키를 클릭할 때
@@ -22,11 +22,14 @@ function tapCookie() {
   tapCount++; // 탭 횟수 증가
   cookie.classList.add('cookie-tapped');
 
+  if (tapCount >= maxTaps) {
+    // 쿠키 이미지 교체
+    cookie.src = "assets/fortune-cookie-open.png";
+    document.getElementById('reveal-btn').classList.remove('hidden'); // 버튼 표시
+  }
+
   setTimeout(() => {
     cookie.classList.remove('cookie-tapped');
-    if (tapCount >= maxTaps) {
-      document.getElementById('reveal-btn').classList.remove('hidden'); // 버튼 표시
-    }
   }, 200);
 }
 
@@ -48,8 +51,12 @@ function showResultPage() {
 function resetPage() {
   const intro = document.getElementById('intro');
   const resultPage = document.getElementById('result-page');
+  const cookie = document.getElementById('cookie');
 
   tapCount = 0; // 탭 횟수 초기화
+  cookie.src = "assets/fortune-cookie-closed.png"; // 닫힌 쿠키 이미지로 복구
+  document.getElementById('reveal-btn').classList.add('hidden'); // 버튼 숨기기
+
   resultPage.classList.add('hidden');
   intro.classList.remove('hidden');
 }
