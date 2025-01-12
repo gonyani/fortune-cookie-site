@@ -12,7 +12,7 @@ body {
   padding: 0;
   font-family: 'JGaegujaengyi-Medium-KO', Arial, sans-serif;
   color: #834124;
-  background-color: black; /* 검정 여백 표시 */
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,8 +70,8 @@ img {
 
 .start-button, #reveal-btn {
   width: 150px;
-  margin: 20px 10px; /* 버튼 아래 여백 추가 */
-  margin-top: 30px; /* 버튼을 조금 아래로 이동 */
+  margin: 20px 10px;
+  margin-top: 30px;
   cursor: pointer;
 }
 
@@ -81,51 +81,56 @@ img {
 }
 
 #cookie.open {
-  width: 200px; /* 열린 쿠키 크기 증가 */
+  width: 200px;
   height: auto;
 }
 
 /* 결과 제목 이미지 스타일 */
 .result-title {
-  width: 80%; /* 화면 너비의 80% */
-  max-width: 300px; /* 최대 너비 제한 */
-  margin: 20px auto 10px; /* 위, 좌우, 아래 여백 */
-  display: block; /* 가운데 정렬 */
+  width: 70%; /* 화면 너비의 70% */
+  max-width: 280px; /* 최대 너비 제한 */
+  margin: 10px auto; /* 여백 조정 */
+  display: block;
+}
+
+/* 결과 고양이와 쪽지 */
+.result-cat-container {
+  position: relative;
+  width: 80%; /* 고양이 컨테이너의 너비 */
+  max-width: 300px; /* 최대 너비 */
+  margin: 20px auto; /* 고양이 이미지 위아래 여백 */
+}
+
+.result-cat {
+  width: 100%;
+}
+
+/* 결과 텍스트 스타일 */
+.fortune-text {
+  position: absolute;
+  top: 50%; /* 텍스트 위치 조정 */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  font-weight: bold;
+  color: #834124;
+  text-align: center;
+  width: 70%; /* 텍스트 너비 */
+  line-height: 1.4;
+  z-index: 3;
 }
 
 /* 결과 화면 버튼 스타일 */
 .result-buttons {
   display: flex;
   justify-content: center;
-  gap: 20px; /* 버튼 간 간격 */
-  margin-top: 30px; /* 결과 텍스트 아래 여백 */
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .result-buttons img {
-  height: 50px; /* 버튼 높이 */
+  height: 50px;
   cursor: pointer;
-}
-
-/* 결과 고양이 이미지 스타일 */
-.result-cat {
-  width: 80%; /* 화면 너비의 80% */
-  max-width: 250px; /* 최대 너비 제한 */
-  margin: 20px 0; /* 위아래 여백 */
-}
-
-/* 결과 텍스트 스타일 */
-.fortune-text {
-  position: absolute;
-  top: 65%; /* 결과 텍스트 위치 조정 */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #834124;
-  text-align: center;
-  width: 60%;
-  line-height: 1.4;
-  z-index: 3;
 }
 
 /* 숨겨진 요소 */
