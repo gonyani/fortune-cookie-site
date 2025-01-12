@@ -85,48 +85,38 @@ img {
   height: auto;
 }
 
-/* 결과 화면 고양이 이미지 스타일 */
-.result-cat {
-  max-width: 80%; /* 화면 너비의 80% */
-  margin: 20px auto; /* 위아래 여백 20px, 좌우 중앙 정렬 */
+/* 결과 제목 이미지 스타일 */
+.result-title {
+  width: 80%; /* 화면 너비의 80% */
+  max-width: 300px; /* 최대 너비 제한 */
+  margin: 20px auto 10px; /* 위, 좌우, 아래 여백 */
+  display: block; /* 가운데 정렬 */
 }
 
 /* 결과 화면 버튼 스타일 */
 .result-buttons {
-  display: flex; /* 버튼을 가로로 정렬 */
-  justify-content: center; /* 중앙 정렬 */
-  align-items: center; /* 수직 방향 중앙 정렬 */
+  display: flex;
+  justify-content: center;
   gap: 20px; /* 버튼 간 간격 */
-  margin-top: 20px; /* 텍스트와 버튼 간 여백 */
+  margin-top: 30px; /* 결과 텍스트 아래 여백 */
 }
 
-.result-home, .result-share {
-  width: auto; /* 비율 유지 */
-  height: 50px; /* 시작하기 버튼과 동일한 높이 */
+.result-buttons img {
+  height: 50px; /* 버튼 높이 */
   cursor: pointer;
 }
 
-/* 쿠키 클릭 시 애니메이션 */
-@keyframes cookie-tap {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.cookie-tapped {
-  animation: cookie-tap 0.2s ease-in-out;
+/* 결과 고양이 이미지 스타일 */
+.result-cat {
+  width: 80%; /* 화면 너비의 80% */
+  max-width: 250px; /* 최대 너비 제한 */
+  margin: 20px 0; /* 위아래 여백 */
 }
 
 /* 결과 텍스트 스타일 */
 .fortune-text {
   position: absolute;
-  top: 62.5%; /* 수정: 기존 60%에서 65%로 변경한 중간값 */
+  top: 65%; /* 결과 텍스트 위치 조정 */
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
