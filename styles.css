@@ -23,7 +23,7 @@ body {
 /* 모바일 기준 화면 설정 */
 .wrapper {
   width: 375px; /* 모바일 화면 너비 고정 */
-  height: calc(100vh - 20px); /* 세로 길이를 화면 크기에 맞게 조정 */
+  height: 100dvh; /* 유효 뷰포트 높이 사용 */
   max-height: 667px; /* 최대 높이 설정 */
   background-color: #CDEC55; /* 기본 배경색 */
   background-image: radial-gradient(#E4FF7B 15%, transparent 15%);
