@@ -126,7 +126,7 @@ img {
 /* 결과 텍스트 스타일 */
 .fortune-text {
   position: absolute;
-  top: 65%; /* 기존 60%에서 65%로 조정 */
+  top: 62.5%; /* 수정: 기존 60%에서 65%로 변경한 중간값 */
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
