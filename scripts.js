@@ -5,23 +5,26 @@ function showCookiePage() {
 }
 
 // 쿠키 탭 동작 및 애니메이션
+let cookieTapCount = 0; // 쿠키 탭 횟수
+
 function tapCookie() {
   const cookie = document.getElementById("cookie");
   const cookieMessage = document.getElementById("cookie-message");
 
-  if (!cookie.classList.contains("open")) {
-    cookie.classList.add("cookie-tapped");
-    setTimeout(() => {
-      cookie.classList.remove("cookie-tapped");
-    }, 200);
+  // 애니메이션 적용
+  cookie.classList.add("cookie-tapped");
+  setTimeout(() => {
+    cookie.classList.remove("cookie-tapped");
+  }, 200);
 
+  // 쿠키 탭 횟수 증가
+  cookieTapCount++;
+  if (cookieTapCount >= 2 && !cookie.classList.contains("open")) {
     // 쿠키 열기 상태로 변경
-    if (!cookie.classList.contains("open")) {
-      cookie.classList.add("open");
-      cookie.src = "assets/fortune-cookie-open.png"; // 열린 쿠키 이미지
-      cookieMessage.textContent = "무슨 내용이 적혀있을까요?"; // 문구 변경
-      document.getElementById("reveal-btn").classList.remove("hidden");
-    }
+    cookie.classList.add("open");
+    cookie.src = "assets/fortune-cookie-open.png"; // 열린 쿠키 이미지
+    cookieMessage.textContent = "무슨 내용이 적혀있을까요?"; // 문구 변경
+    document.getElementById("reveal-btn").classList.remove("hidden");
   }
 }
 
@@ -58,6 +61,7 @@ function resetPage() {
   cookie.src = "assets/fortune-cookie-closed.png"; // 닫힌 쿠키 이미지
   document.getElementById("reveal-btn").classList.add("hidden");
   document.getElementById("cookie-message").textContent = "쿠키를 열어보세요!"; // 초기 문구로 복구
+  cookieTapCount = 0; // 쿠키 탭 횟수 초기화
 }
 
 // 공유하기 버튼 동작
