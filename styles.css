@@ -23,17 +23,21 @@ body {
   width: 100vw;
   height: 100vh;
   text-align: center;
+  aspect-ratio: 3 / 4; /* 화면 비율 4:3 유지 */
+  background-color: #000; /* 검정 여백 */
 }
 
-/* 배경 스타일 */
-.intro, .cookie-page, .result-page {
-  background-color: #CDEC55; /* 기본 배경색 */
-  background-image: radial-gradient(#E4FF7B 20%, transparent 20%); /* 도트 크기 증가 */
-  background-size: 40px 40px; /* 도트 크기 증가 */
+.intro > div, .cookie-page > div, .result-page > div {
+  width: 100%;
+  height: 100%;
+  background-color: #CDEC55; /* 메인 배경색 */
+  background-image: radial-gradient(#E4FF7B 25%, transparent 25%); /* 도트 크기 증가 */
+  background-size: 50px 50px; /* 도트 크기 50px */
 }
 
-.cookie-page {
-  background-image: radial-gradient(#D6F363 20%, transparent 20%);
+/* 쿠키 열기 화면 */
+.cookie-page > div {
+  background-image: radial-gradient(#D6F363 25%, transparent 25%);
 }
 
 /* 이미지 스타일 */
@@ -52,7 +56,7 @@ img {
 
 .start-button, .result-home, .result-share, #reveal-btn {
   width: 150px; /* 버튼 크기 */
-  margin: 20px; /* 버튼 간격 증가 */
+  margin: 20px; /* 버튼 간격 */
   cursor: pointer;
 }
 
@@ -68,7 +72,7 @@ img {
 /* 결과 텍스트 스타일 */
 .fortune-text {
   position: absolute;
-  top: 60%; /* 쪽지 위치에 맞게 조정 */
+  top: 60%; /* 쪽지 위치 */
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
