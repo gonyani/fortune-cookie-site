@@ -87,11 +87,12 @@ img {
 
 /* 결과 화면 버튼 스타일 */
 .result-home, .result-share {
-  width: 150px; /* 시작하기 버튼과 동일한 크기 */
-  height: auto; /* 가로세로 비율 유지 */
+  width: auto; /* 비율을 깨지 않고 높이에 따라 크기 조정 */
+  height: 50px; /* 시작하기 버튼 및 공유하기 버튼과 동일한 높이 */
   margin: 10px; /* 버튼 간 여백 */
   cursor: pointer;
 }
+
 
 /* 쿠키 클릭 시 애니메이션 */
 @keyframes cookie-tap {
