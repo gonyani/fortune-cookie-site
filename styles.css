@@ -86,15 +86,10 @@ img {
 }
 
 /* 결과 화면 버튼 스타일 */
-.result-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px; /* 버튼 간 간격 */
-  margin-top: 30px; /* 결과 텍스트 아래 여백 */
-}
-
-.result-buttons img {
-  height: 50px; /* 시작하기 버튼과 같은 높이 */
+.result-home, .result-share {
+  width: 150px; /* 시작하기 버튼과 동일한 크기 */
+  height: auto; /* 가로세로 비율 유지 */
+  margin: 10px; /* 버튼 간 여백 */
   cursor: pointer;
 }
 
