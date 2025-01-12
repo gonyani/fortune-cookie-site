@@ -1,87 +1,81 @@
-/* 공통 스타일 */
+/* 웹폰트 추가 */
+@font-face {
+    font-family: 'JGaegujaengyi-Medium-KO';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JGaegujaengyi-Medium-KO.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 기본 설정 */
 body {
-    margin: 0;
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: #CDEC55;
-    color: #834124;
+  margin: 0;
+  padding: 0;
+  font-family: 'JGaegujaengyi-Medium-KO', Arial, sans-serif;
+  color: #834124;
 }
 
-.screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
+/* 공통 화면 스타일 */
+.intro, .cookie-page, .result-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
 }
 
-.hidden {
-    display: none;
+/* 배경 스타일 */
+.intro, .cookie-page, .result-page {
+  background-color: #CDEC55; /* 기본 배경색 */
+  background-image: radial-gradient(#E4FF7B 15%, transparent 15%);
+  background-size: 30px 30px; /* 도트 크기 증가 */
 }
 
-.button {
-    background-color: #D6F363;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #834124;
-    cursor: pointer;
-    margin: 10px;
+.cookie-page {
+  background-image: radial-gradient(#D6F363 15%, transparent 15%);
 }
 
-.button:hover {
-    background-color: #C4E04B;
+/* 이미지 스타일 */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* 인트로 화면 */
-.intro-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
+.intro-image {
+  width: 150px;
 }
 
-.intro-cat {
-    width: 200px;
-    height: auto;
+.intro-title, .result-title, .result-cat {
+  margin: 10px;
 }
 
-/* 쿠키 열기 화면 */
-.cookie {
-    width: 150px;
-    height: auto;
-    cursor: pointer;
+.start-button, .result-home, .result-share, #reveal-btn {
+  width: 150px; /* 버튼 크기 축소 */
+  margin: 10px;
+  cursor: pointer;
 }
 
-.instruction {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+#cookie {
+  width: 150px;
+  cursor: pointer;
 }
 
-/* 결과 화면 */
-.result-container {
-    position: relative;
-    text-align: center;
-}
-
-.result-cat {
-    width: 200px;
-    height: auto;
-}
-
+/* 결과 텍스트 스타일 */
 .fortune-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #834124;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 60%; /* 쪽지 위치에 맞게 조정 */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #834124;
+  text-align: center;
+  width: 60%;
+  line-height: 1.4;
 }
 
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+/* 숨겨진 요소 */
+.hidden {
+  display: none;
 }
