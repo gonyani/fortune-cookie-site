@@ -12,13 +12,21 @@ const fortunes = [
   "행복은 당신의 선택이에요."
 ];
 
+// 쿠키를 탭한 횟수
+let tapCount = 0; 
+const maxTaps = 3; // 쿠키를 열기 위해 필요한 탭 횟수
+
 // 쿠키 열기 화면에서 쿠키를 클릭할 때
 function tapCookie() {
   const cookie = document.getElementById('cookie');
+  tapCount++; // 탭 횟수 증가
   cookie.classList.add('cookie-tapped');
+
   setTimeout(() => {
     cookie.classList.remove('cookie-tapped');
-    document.getElementById('reveal-btn').classList.remove('hidden');
+    if (tapCount >= maxTaps) {
+      document.getElementById('reveal-btn').classList.remove('hidden'); // 버튼 표시
+    }
   }, 200);
 }
 
@@ -41,6 +49,7 @@ function resetPage() {
   const intro = document.getElementById('intro');
   const resultPage = document.getElementById('result-page');
 
+  tapCount = 0; // 탭 횟수 초기화
   resultPage.classList.add('hidden');
   intro.classList.remove('hidden');
 }
