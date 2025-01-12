@@ -4,199 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fortune Cookie</title>
-    <style>
-        @font-face {
-            font-family: 'JGaegujaengyi-Medium-KO';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JGaegujaengyi-Medium-KO.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'JGaegujaengyi-Medium-KO', sans-serif;
-            color: #834124;
-        }
-
-        .background {
-            background-color: #CDEC55;
-            background-image: radial-gradient(#E4FF7B 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-
-        .intro {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .intro img {
-            display: block;
-            margin: 0 auto;
-            max-width: 90%;
-        }
-
-        .intro h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .intro .start-button {
-            padding: 10px 20px;
-            font-size: 1.5rem;
-            background-color: #834124;
-            color: #FFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .cookie-screen {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-
-        .cookie-screen img {
-            max-width: 200px;
-            margin-bottom: 20px;
-        }
-
-        .cookie-screen button {
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            background-color: #834124;
-            color: #FFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .result-screen {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .result-screen img {
-            max-width: 90%;
-            margin: 0 auto 20px;
-        }
-
-        .result-screen .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .result-screen button {
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            background-color: #834124;
-            color: #FFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .intro h1 {
-                font-size: 2.5rem;
-            }
-
-            .cookie-screen img {
-                max-width: 150px;
-            }
-
-            .result-screen img {
-                max-width: 80%;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .intro h1 {
-                font-size: 4rem;
-            }
-
-            .result-screen img {
-                max-width: 50%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="background">
-    <div class="intro">
-        <h1 id="intro-title">포춘쿠키</h1>
-        <img src="assets/intro-cat.png" alt="인트로 고양이">
-        <button class="start-button">시작하기</button>
+<body>
+    <div id="intro-screen" class="screen">
+        <h1 class="intro-title">오늘의 포춘쿠키</h1>
+        <img src="assets/intro-cat.png" alt="Intro Cat" class="intro-cat">
+        <button id="start-button" class="button">시작하기</button>
     </div>
 
-    <div class="cookie-screen" style="display: none;">
-        <h2>쿠키를 3번 눌러 열어보세요!</h2>
-        <img id="cookie-image" src="assets/fortune-cookie-closed.png" alt="닫힌 쿠키">
-        <button id="reveal-button" style="display: none;">내용 확인하기</button>
+    <div id="cookie-screen" class="screen hidden">
+        <p class="instruction">포춘쿠키를 탭하세요!</p>
+        <img id="cookie-image" src="assets/fortune-cookie-closed.png" alt="Fortune Cookie" class="cookie">
     </div>
 
-    <div class="result-screen" style="display: none;">
-        <img id="result-cat" src="assets/result-cat.png" alt="결과 고양이">
-        <div id="fortune-text">오늘 당신의 운세는...</div>
-        <div class="buttons">
-            <button id="home-button">홈으로</button>
-            <button id="share-button">공유하기</button>
+    <div id="result-screen" class="screen hidden">
+        <div class="result-container">
+            <img src="assets/result-cat.png" alt="Result Cat" class="result-cat">
+            <p id="fortune-text" class="fortune-text">당신의 운세가 여기 표시됩니다!</p>
+        </div>
+        <div class="button-group">
+            <button id="home-button" class="button">홈으로</button>
+            <button id="share-button" class="button">공유하기</button>
         </div>
     </div>
 
-    <script>
-        const startButton = document.querySelector('.start-button');
-        const introScreen = document.querySelector('.intro');
-        const cookieScreen = document.querySelector('.cookie-screen');
-        const resultScreen = document.querySelector('.result-screen');
-        const cookieImage = document.getElementById('cookie-image');
-        const revealButton = document.getElementById('reveal-button');
-        const fortuneText = document.getElementById('fortune-text');
-        const homeButton = document.getElementById('home-button');
-        const shareButton = document.getElementById('share-button');
-
-        const fortunes = [
-            '작은 행운이 찾아옵니다',
-            '기대하는 일이 이루어집니다',
-            '마음이 가는 대로 행동하세요',
-            '주위 사람들을 살펴보세요'
-        ];
-
-        let tapCount = 0;
-
-        startButton.addEventListener('click', () => {
-            introScreen.style.display = 'none';
-            cookieScreen.style.display = 'flex';
-        });
-
-        cookieImage.addEventListener('click', () => {
-            tapCount++;
-            if (tapCount === 3) {
-                cookieImage.src = 'assets/fortune-cookie-open.png';
-                revealButton.style.display = 'block';
-            }
-        });
-
-        revealButton.addEventListener('click', () => {
-            cookieScreen.style.display = 'none';
-            resultScreen.style.display = 'block';
-            fortuneText.textContent = fortunes[Math.floor(Math.random() * fortunes.length)];
-        });
-
-        homeButton.addEventListener('click', () => {
-            resultScreen.style.display = 'none';
-            introScreen.style.display = 'block';
-            tapCount = 0;
-            cookieImage.src = 'assets/fortune-cookie-closed.png';
-            revealButton.style.display = 'none';
-        });
-
-        shareButton.addEventListener('click', () => {
-            alert('공유 기능은 아직 준비 중입니다!');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
