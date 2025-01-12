@@ -17,12 +17,14 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 /* 모바일 기준 화면 설정 */
 .wrapper {
   width: 375px; /* 모바일 화면 너비 고정 */
-  height: 667px; /* 모바일 화면 높이 고정 */
+  height: calc(100vh - 20px); /* 세로 길이를 화면 크기에 맞게 조정 */
+  max-height: 667px; /* 최대 높이 설정 */
   background-color: #CDEC55; /* 기본 배경색 */
   background-image: radial-gradient(#E4FF7B 15%, transparent 15%);
   background-size: 30px 30px; /* 도트 크기 증가 */
