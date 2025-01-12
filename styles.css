@@ -81,7 +81,7 @@ img {
 }
 
 #cookie.open {
-  width: 200px;
+  width: 250px;
   height: auto;
 }
 
@@ -95,7 +95,7 @@ img {
 /* 결과 텍스트 스타일 */
 .fortune-text {
   position: absolute;
-  top: 70%; /* 텍스트 위치 수정 */
+  top: 65%; /* 텍스트 위치 수정 */
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
