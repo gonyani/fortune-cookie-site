@@ -25,9 +25,7 @@ function resetPage() {
   document.getElementById("intro").classList.remove("hidden");
   cookieTaps = 0; // 클릭 횟수 초기화
   document.getElementById("reveal-btn").classList.add("hidden");
-  const cookieImage = document.getElementById("cookie");
-  cookieImage.src = "assets/fortune-cookie-closed.png"; // 닫힌 쿠키로 초기화
-  cookieImage.classList.remove("open"); // 열린 쿠키 클래스 제거
+  document.getElementById("cookie").src = "assets/fortune-cookie-closed.png"; // 닫힌 쿠키로 초기화
 }
 
 // 쿠키 탭 함수
@@ -35,9 +33,20 @@ function tapCookie() {
   cookieTaps++;
   const cookieImage = document.getElementById("cookie");
 
+  // 애니메이션 효과 추가
+  cookieImage.classList.add("cookie-tapped");
+
+  // 애니메이션이 끝난 후 클래스 제거
+  cookieImage.addEventListener(
+    "animationend",
+    () => {
+      cookieImage.classList.remove("cookie-tapped");
+    },
+    { once: true }
+  );
+
   if (cookieTaps >= 3) {
     cookieImage.src = "assets/fortune-cookie-open.png"; // 열린 쿠키 이미지로 변경
-    cookieImage.classList.add("open"); // 열린 쿠키 클래스 추가
     document.getElementById("reveal-btn").classList.remove("hidden"); // 내용 확인 버튼 표시
   }
 }
