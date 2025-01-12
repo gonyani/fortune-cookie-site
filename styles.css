@@ -1,9 +1,9 @@
 /* 웹폰트 추가 */
 @font-face {
-    font-family: 'JGaegujaengyi-Medium-KO';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JGaegujaengyi-Medium-KO.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'JGaegujaengyi-Medium-KO';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JGaegujaengyi-Medium-KO.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* 기본 설정 */
@@ -85,37 +85,17 @@ img {
   height: auto;
 }
 
-/* 쿠키 클릭 애니메이션 */
-@keyframes cookie-tap {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.cookie-tapped {
-  animation: cookie-tap 0.2s ease-in-out;
-}
-
-/* 결과 제목 이미지 스타일 */
+/* 결과 화면 스타일 */
 .result-title {
   width: 70%;
-  max-width: 280px;
-  margin: 10px auto;
-  display: block;
+  margin-bottom: 20px;
 }
 
-/* 결과 고양이와 쪽지 */
 .result-cat-container {
   position: relative;
   width: 80%;
   max-width: 300px;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 .result-cat {
@@ -124,10 +104,10 @@ img {
 
 .fortune-text {
   position: absolute;
-  top: 50%;
+  bottom: 15%; /* 텍스트를 화면 아래쪽으로 이동 */
   left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1rem;
+  transform: translate(-50%, 50%);
+  font-size: 1.2rem;
   font-weight: bold;
   color: #834124;
   text-align: center;
@@ -147,6 +127,23 @@ img {
 .result-buttons img {
   height: 50px;
   cursor: pointer;
+}
+
+/* 쿠키 클릭 시 애니메이션 */
+@keyframes cookie-tap {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cookie-tapped {
+  animation: cookie-tap 0.2s ease-in-out;
 }
 
 /* 숨겨진 요소 */
