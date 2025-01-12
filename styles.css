@@ -1,0 +1,87 @@
+/* 공통 스타일 */
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #CDEC55;
+    color: #834124;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.button {
+    background-color: #D6F363;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #834124;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: #C4E04B;
+}
+
+/* 인트로 화면 */
+.intro-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.intro-cat {
+    width: 200px;
+    height: auto;
+}
+
+/* 쿠키 열기 화면 */
+.cookie {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+}
+
+.instruction {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* 결과 화면 */
+.result-container {
+    position: relative;
+    text-align: center;
+}
+
+.result-cat {
+    width: 200px;
+    height: auto;
+}
+
+.fortune-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #834124;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
