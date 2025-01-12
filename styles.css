@@ -42,12 +42,12 @@ img {
   height: auto;
 }
 
-.intro-image {
-  width: 150px;
+.intro-title {
+  margin-bottom: 10px; /* 제목 이미지와 고양이 이미지 간격 */
 }
 
-.intro-title, .result-title, .result-cat {
-  margin: 10px;
+.intro-image {
+  width: 150px;
 }
 
 .start-button, .result-home, .result-share, #reveal-btn {
