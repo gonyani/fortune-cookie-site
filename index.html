@@ -1,40 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fortune Cookie</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-</head>
-<body>
-  <div class="main-container">
-    <!-- 인트로 화면 -->
-    <div class="intro" id="intro">
-      <img src="assets/intro-title.png" alt="인트로 제목" class="intro-title">
-      <img src="assets/intro-cat.png" alt="인트로 고양이" class="intro-image">
-      <img src="assets/start-button.png" alt="시작 버튼" class="start-button" onclick="showCookiePage()">
-    </div>
+const fortunes = [
+  "행운이 당신을 찾아올 거예요.",
+  "곧 새로운 시작이 다가올 거예요.",
+  "당신의 꿈이 현실이 될 거예요!",
+  "긍정적인 마음가짐이 필요해요.",
+  "준비된 사람에게 기회가 온답니다.",
+  "작은 친절이 큰 변화를 만들어요.",
+  "오늘은 당신의 날이에요!",
+  "곧 사랑이 찾아올 거예요.",
+  "모험을 두려워하지 마세요.",
+  "행복은 당신의 선택이에요."
+];
 
-    <!-- 쿠키 열기 화면 -->
-    <div class="cookie-page hidden" id="cookie-page">
-      <h1 id="cookie-message">쿠키를 열어보세요!</h1>
-      <img src="assets/fortune-cookie-closed.png" alt="닫힌 쿠키" id="cookie" onclick="tapCookie()">
-      <img src="assets/cookie-reveal-button.png" alt="내용 확인 버튼" id="reveal-btn" class="hidden" onclick="showResultPage()">
-    </div>
+let tapCount = 0;
 
-    <!-- 결과 화면 -->
-    <div class="result-page hidden" id="result-page">
-      <img src="assets/result-title.png" alt="결과 제목" class="result-title">
-      <img src="assets/result-cat.png" alt="결과 고양이와 쪽지" class="result-cat">
-      <div class="fortune-text" id="fortune-text"></div>
-      <div class="result-buttons">
-        <img src="assets/result-home.png" alt="홈으로 버튼" class="result-home" onclick="resetPage()">
-        <img src="assets/result-share-button.png" alt="공유하기 버튼" class="result-share" onclick="shareFortune()">
-      </div>
-    </div>
-  </div>
+function showCookiePage() {
+  document.getElementById("intro").classList.add("hidden");
+  document.getElementById("cookie-page").classList.remove("hidden");
+}
 
-  <script src="scripts.js"></script>
-</body>
-</html>
+function tapCookie() {
+  const cookie = document.getElementById("cookie");
+  cookie.classList.add("cookie-tapped");
+  setTimeout(() => cookie.classList.remove("cookie-tapped"), 200);
+  tapCount++;
+  
+  if (tapCount === 3) {
+    cookie.src = "assets/fortune-cookie-open.png";
+    document.getElementById("cookie-message").textContent = "무슨 내용이 적혀있을까요?";
+    document.getElementById("reveal-btn").classList.remove("hidden");
+  }
+}
+
+function showResultPage() {
+  document.getElementById("cookie-page").classList.add("hidden");
+  document.getElementById("result-page").classList.remove("hidden");
+  const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+  document.getElementById("fortune-text").textContent = randomFortune;
+}
+
+function resetPage() {
+  tapCount = 0;
+  document.getElementById("result-page").classList.add("hidden");
+  document.getElementById("intro").classList.remove("hidden");
+  const cookie = document.getElementById("cookie");
+  cookie.src = "assets/fortune-cookie-closed.png";
+  document.getElementById("cookie-message").textContent = "쿠키를 열어보세요!";
+  document.getElementById("reveal-btn").classList.add("hidden");
+}
+
+function shareFortune() {
+  const currentFortune = document.getElementById("fortune-text").textContent;
+  Kakao.Link.sendDefault({
+    objectType: "text",
+    text: `오늘의 운세: ${currentFortune}`,
+    link: {
+      webUrl: "https://example.com",
+      mobileWebUrl: "https://example.com"
+    }
+  });
+}
