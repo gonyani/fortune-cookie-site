@@ -85,37 +85,53 @@ img {
   height: auto;
 }
 
+/* 쿠키 클릭 애니메이션 */
+@keyframes cookie-tap {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cookie-tapped {
+  animation: cookie-tap 0.2s ease-in-out;
+}
+
 /* 결과 제목 이미지 스타일 */
 .result-title {
-  width: 70%; /* 화면 너비의 70% */
-  max-width: 280px; /* 최대 너비 제한 */
-  margin: 10px auto; /* 여백 조정 */
+  width: 70%;
+  max-width: 280px;
+  margin: 10px auto;
   display: block;
 }
 
 /* 결과 고양이와 쪽지 */
 .result-cat-container {
   position: relative;
-  width: 80%; /* 고양이 컨테이너의 너비 */
-  max-width: 300px; /* 최대 너비 */
-  margin: 20px auto; /* 고양이 이미지 위아래 여백 */
+  width: 80%;
+  max-width: 300px;
+  margin: 20px auto;
 }
 
 .result-cat {
   width: 100%;
 }
 
-/* 결과 텍스트 스타일 */
 .fortune-text {
   position: absolute;
-  top: 50%; /* 텍스트 위치 조정 */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1rem;
   font-weight: bold;
   color: #834124;
   text-align: center;
-  width: 70%; /* 텍스트 너비 */
+  width: 70%;
   line-height: 1.4;
   z-index: 3;
 }
