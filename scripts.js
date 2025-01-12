@@ -19,7 +19,7 @@ function tapCookie() {
 
   // 쿠키 탭 횟수 증가
   cookieTapCount++;
-  if (cookieTapCount >= 2 && !cookie.classList.contains("open")) {
+  if (cookieTapCount >= 3 && !cookie.classList.contains("open")) {
     // 쿠키 열기 상태로 변경
     cookie.classList.add("open");
     cookie.src = "assets/fortune-cookie-open.png"; // 열린 쿠키 이미지
