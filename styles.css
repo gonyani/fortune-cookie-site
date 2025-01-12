@@ -12,25 +12,26 @@ body {
   padding: 0;
   font-family: 'JGaegujaengyi-Medium-KO', Arial, sans-serif;
   color: #834124;
-  background: #000; /* 좌우 여백 배경색 */
+  background: #000; /* 여백 배경색 */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow: hidden;
 }
 
-/* 모바일 기준 화면 설정 */
+/* 4:3 화면 설정 */
 .wrapper {
-  width: 375px; /* 모바일 화면 너비 고정 */
-  height: 100dvh; /* 유효 뷰포트 높이 사용 */
-  max-height: 667px; /* 최대 높이 설정 */
+  aspect-ratio: 3 / 4; /* 화면 비율 설정 */
+  width: 100%; /* 기본 너비 */
+  max-width: 768px; /* 최대 너비 제한 */
   background-color: #CDEC55; /* 기본 배경색 */
   background-image: radial-gradient(#E4FF7B 15%, transparent 15%);
   background-size: 30px 30px; /* 도트 크기 증가 */
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 공통 화면 스타일 */
