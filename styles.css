@@ -12,31 +12,33 @@ body {
   padding: 0;
   font-family: 'JGaegujaengyi-Medium-KO', Arial, sans-serif;
   color: #834124;
+  background-color: #000; /* 검정 여백 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* 공통 화면 스타일 */
-.intro, .cookie-page, .result-page {
+/* 화면 비율 유지 및 내용 컨테이너 설정 */
+.container {
+  width: 100vw;
+  height: 100vh;
+  max-width: calc(100vh * 3 / 4); /* 4:3 화면 비율 유지 */
+  max-height: calc(100vw * 4 / 3);
+  background-color: #CDEC55; /* 메인 배경색 */
+  background-image: radial-gradient(#E4FF7B 25%, transparent 25%);
+  background-size: 50px 50px; /* 도트 크기 증가 */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
-  aspect-ratio: 3 / 4; /* 화면 비율 4:3 유지 */
-  background-color: #000; /* 검정 여백 */
+  overflow: hidden;
+  position: relative;
 }
 
-.intro > div, .cookie-page > div, .result-page > div {
-  width: 100%;
-  height: 100%;
-  background-color: #CDEC55; /* 메인 배경색 */
-  background-image: radial-gradient(#E4FF7B 25%, transparent 25%); /* 도트 크기 증가 */
-  background-size: 50px 50px; /* 도트 크기 50px */
-}
-
-/* 쿠키 열기 화면 */
-.cookie-page > div {
+/* 쿠키 열기 화면 배경 */
+.cookie-page .container {
   background-image: radial-gradient(#D6F363 25%, transparent 25%);
 }
 
