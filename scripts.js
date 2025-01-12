@@ -1,3 +1,14 @@
+// 카카오 SDK 초기화
+Kakao.init('415ebc10470dc04c0d0dcdc6d7e1aa37'); // YOUR_APP_KEY를 카카오 디벨로퍼스에서 발급받은 JavaScript 키로 변경하세요.
+
+// 초기화 확인
+if (Kakao.isInitialized()) {
+  console.log('Kakao SDK 초기화 성공!');
+} else {
+  console.error('Kakao SDK 초기화 실패. JavaScript 키를 확인하세요.');
+}
+
+// 운세 배열
 const fortunes = [
   "행운이 당신을 찾아올 거예요.",
   "곧 새로운 시작이 다가올 거예요.",
@@ -54,8 +65,8 @@ function shareFortune() {
     objectType: "text",
     text: `오늘의 운세: ${currentFortune}`,
     link: {
-      webUrl: "https://example.com",
-      mobileWebUrl: "https://example.com"
+      webUrl: "https://example.com", // 실제 웹사이트 URL로 변경하세요
+      mobileWebUrl: "https://example.com" // 모바일용 URL도 같은 값으로 설정
     }
   });
 }
